@@ -5,3 +5,7 @@ results*
 work
 singularity_img/
 vcfs/
+client-state/
+sessions/
+projects_settings/
+results/

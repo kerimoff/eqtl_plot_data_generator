@@ -2,11 +2,11 @@
 process generate_plot_ge_data { 
     tag "${dataset_id}_${qtl_group}_${quant_method}"
     label "generate_plot_data"
-    container "quay.io/kfkf33/coverage_plot:v3"
+    container "quay.io/kerimoff/coverage_plot:v5"
 
 
     input:
-    tuple val(dataset_id), val(quant_method), val(qtl_group), file(sample_meta), file(bigwig_path), file(usage_matrix_norm), file(tpm_matrix), file(exon_summ_stats_files), file(all_summ_stats_files), file(phenotype_meta), file(scaling_factors), file(vcf_file), file(vcf_file_index), file(susie_purity_filtered)
+    tuple val(dataset_id), val(quant_method), val(qtl_group), file(sample_meta), file(coverage_parquet), file(usage_matrix_norm), file(tpm_matrix), file(exon_summ_stats_files), file(all_summ_stats_files), file(phenotype_meta), file(scaling_factors), file(vcf_file), file(vcf_file_index), file(susie_purity_filtered)
     path mane_transcript_gene_map
     path mane_gtf_file
 
@@ -24,7 +24,7 @@ process generate_plot_ge_data {
         --finemap_susie $susie_purity_filtered \
         --sample_meta $sample_meta \
         --vcf_file $vcf_file \
-        --bigwig_path $bigwig_path \
+        --coverage_parquet $coverage_parquet \
         --mane_transcript_gene_map $mane_transcript_gene_map \
         --gtf_file $mane_gtf_file \
         --div_scaling_factors $scaling_factors \

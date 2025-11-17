@@ -14,4 +14,4 @@ module load tabix
 
 nextflow run main.nf -profile tartu_hpc -resume \
   --studyFile ge/MAGE_ge_test.tsv\
-  --outdir MAGE_ge_test
+  --outdir results/MAGE_ge_test_parquet
